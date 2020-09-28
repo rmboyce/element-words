@@ -162,6 +162,7 @@ void draw() {
       //Add failed spellings to failedList
       for (int i = 0; i < tempList.size(); i++) {
         String failedWord = tempList.get(i);
+        //Remove "failed" from start
         if (failedWord.length() > 6) {
           failedWord = failedWord.substring(6, failedWord.length());
           if (!failedList.contains(failedWord)) {
