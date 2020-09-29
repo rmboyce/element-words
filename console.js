@@ -12,11 +12,11 @@ class Console
   
   display()
   {
-		strokeWeight(1);
-		stroke(0);
+    strokeWeight(1);
+    stroke(0);
     line(this.x - 5, this.y - this.font/1.3, this.x - 5, this.y + this.font/2.5);
     textSize(this.font);
-		noStroke();
+    noStroke();
     text(this.chars, this.x, this.y + 6);
   }
   
