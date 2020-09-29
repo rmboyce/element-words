@@ -20,9 +20,9 @@ var displayCase = 2;
 function setup() {
   createCanvas(600, 400);
 	
-	hs1 = new HScrollbar(480, 50, 100, 20, 3);
+  hs1 = new HScrollbar(480, 50, 100, 20, 3);
 	
-	c = new Console(30, 50, 30);
+  c = new Console(30, 50, 30);
   c.activate();
 }
 
@@ -143,7 +143,7 @@ function draw() {
     hs1.display();
     fill(0, 0, 0);
     textSize(20);
-		noStroke();
+    noStroke();
     text("Word to Elementize", 30, 25);
     text("Display Mode", 465, 25);
 		
@@ -224,8 +224,8 @@ function draw() {
     //---------------DISPLAY SPELLINGS---------------
     //Show working spelling(s), if any
     textSize(20);
-		noStroke();
-		strokeWeight(1);
+    noStroke();
+    strokeWeight(1);
     if (potentialList.length > 0) {
       potentialList = sort(potentialList);
       for (let i = 0; i < potentialList.length; i++) {
@@ -246,10 +246,10 @@ function draw() {
                 text(oneWord[x], 30 + 35 * x, 90 + 30 * i);
               }
               noFill();
-							stroke(0);
+              stroke(0);
               rect(28 + 35 * x, 70 + 30 * i, 31, 28);
               fill(0, 0, 0);
-							noStroke();
+              noStroke();
             }
           }
         }
@@ -278,10 +278,10 @@ function draw() {
                   text(oneWord[x], 30 + 35 * x, 90 + 30 * i);
                 }
                 noFill();
-								stroke(255, 0, 0);
+                stroke(255, 0, 0);
                 rect(28 + 35 * x, 70 + 30 * i, 31, 28);
-								fill(255, 0, 0);
-								noStroke();
+                fill(255, 0, 0);
+                noStroke();
               }
             }
           }
