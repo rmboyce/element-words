@@ -24,6 +24,8 @@ function setup() {
 	
   c = new Console(30, 50, 30);
   c.activate();
+  c.chars = "princess";
+  c.numChars = 8;
 }
 
 function MatchNextOneElement(prev, target) {
@@ -299,8 +301,7 @@ function draw() {
 }
 
 function keyPressed() {
-  if (keyCode == BACKSPACE)
-  {
+  if (keyCode == BACKSPACE) {
     c.deleteChar();
   }
   else if (keyCode == 32) {
@@ -309,7 +310,7 @@ function keyPressed() {
 }
 
 function keyTyped() {
-  if (!space) {
+  if (!space && c.numChars < 17) {
     c.addChar(key);
   }
   space = false;

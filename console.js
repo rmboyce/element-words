@@ -14,9 +14,11 @@ class Console
   {
     strokeWeight(1);
     stroke(0);
-    line(this.x - 5, this.y - this.font/1.3, this.x - 5, this.y + this.font/2.5);
+	noFill();
+	rect(this.x - 5, this.y - this.font/1.5, this.x - 5 + 410, this.y - this.font/2.3);
     textSize(this.font);
     noStroke();
+	fill(0, 0, 0);
     text(this.chars, this.x, this.y + 6);
   }
   
