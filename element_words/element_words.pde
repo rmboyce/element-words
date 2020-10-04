@@ -19,6 +19,8 @@ int displayCase = 2;
 
 void setup() {
   size(600, 600);
+  hs1.setNormalPos(0.9f);
+  displayCase = 0;
   c.activate();
   c.chars = "princess";
   c.numChars = 8;

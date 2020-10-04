@@ -21,6 +21,8 @@ function setup() {
   createCanvas(600, 400);
 	
   hs1 = new HScrollbar(480, 50, 100, 20, 3);
+  hs1.setNormalPos(0.9);
+  displayCase = 0;
 	
   c = new Console(30, 50, 30);
   c.activate();
