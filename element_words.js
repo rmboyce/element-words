@@ -17,6 +17,11 @@ var elements = [ "H", "He", "Li", "Be", "B", "C", "N", "O", "F", "Ne",
 
 var displayCase = 2;
 
+const TEXT_X_START = 30;
+const TEXT_Y_START = 90;
+const TEXT_X_OFFSET_BOXES = 35;
+const TEXT_Y_OFFSET = 30;
+
 function setup() {
   createCanvas(600, 400);
 	
@@ -234,24 +239,24 @@ function draw() {
       potentialList = sort(potentialList);
       for (let i = 0; i < potentialList.length; i++) {
         if (displayCase == 0) { //Without spaces
-          text(potentialList[i], 30, 90 + 30 * i);
+          text(potentialList[i], TEXT_X_START, TEXT_Y_START + TEXT_Y_OFFSET * i);
         }
         else if (displayCase == 1) { //With spaces
-          text(AddSpaces(potentialList[i]), 30, 90 + 30 * i);
+          text(AddSpaces(potentialList[i]), TEXT_X_START, TEXT_Y_START + TEXT_Y_OFFSET * i);
         }
         else if (displayCase == 2) { //Boxes
           let oneWord = AddSpacesToArray(potentialList[i]);
           if (oneWord != null) {
             for (let x = 0; x < oneWord.length; x++) {
               if (oneWord[x].length == 1) {
-                text(oneWord[x], 30 + 35 * x + 5, 90 + 30 * i);
+                text(oneWord[x], TEXT_X_START + TEXT_X_OFFSET_BOXES * x + 5, TEXT_Y_START + TEXT_Y_OFFSET * i);
               }
               else {
-                text(oneWord[x], 30 + 35 * x, 90 + 30 * i);
+                text(oneWord[x], TEXT_X_START + TEXT_X_OFFSET_BOXES * x, TEXT_Y_START + TEXT_Y_OFFSET * i);
               }
               noFill();
               stroke(0);
-              rect(28 + 35 * x, 70 + 30 * i, 31, 28);
+              rect(TEXT_X_START - 2 + TEXT_X_OFFSET_BOXES * x, TEXT_Y_START - 20 + TEXT_Y_OFFSET * i, TEXT_X_OFFSET_BOXES - 4, TEXT_Y_OFFSET - 2);
               fill(0, 0, 0);
               noStroke();
             }
@@ -266,24 +271,24 @@ function draw() {
         failedList = sort(failedList);
         for (let i = 0; i < failedList.length; i++) {
           if (displayCase == 0) { //Without spaces
-            text(failedList[i], 30, 90 + 30 * i);
+            text(failedList[i], TEXT_X_START, 90 + 30 * i);
           }
           else if (displayCase == 1) { //With spaces
-            text(AddSpaces(failedList[i]), 30, 90 + 30 * i);
+            text(AddSpaces(failedList[i]), TEXT_X_START, TEXT_Y_START + TEXT_Y_OFFSET * i);
           }
           else if (displayCase == 2) { //Boxes
             let oneWord = AddSpacesToArray(failedList[i]);
             if (oneWord != null) {
               for (let x = 0; x < oneWord.length; x++) {
                 if (oneWord[x].length == 1) {
-                  text(oneWord[x], 30 + 35 * x + 5, 90 + 30 * i);
+                  text(oneWord[x], TEXT_X_START + TEXT_X_OFFSET_BOXES * x + 5, TEXT_Y_START + TEXT_Y_OFFSET * i);
                 }
                 else {
-                  text(oneWord[x], 30 + 35 * x, 90 + 30 * i);
+                  text(oneWord[x], TEXT_X_START + TEXT_X_OFFSET_BOXES * x, TEXT_Y_START + TEXT_Y_OFFSET * i);
                 }
                 noFill();
                 stroke(255, 0, 0);
-                rect(28 + 35 * x, 70 + 30 * i, 31, 28);
+                rect(TEXT_X_START - 2 + TEXT_X_OFFSET_BOXES * x, TEXT_Y_START - 20 + TEXT_Y_OFFSET * i, TEXT_X_OFFSET_BOXES - 4, TEXT_Y_OFFSET - 2);
                 fill(255, 0, 0);
                 noStroke();
               }
@@ -292,7 +297,7 @@ function draw() {
         }
       }
       else {
-        text("Nothing found", 30, 90);
+        text("Nothing found", TEXT_X_START, TEXT_Y_START);
       }
       fill(0, 0, 0);
     }

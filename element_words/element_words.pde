@@ -17,6 +17,11 @@ String[] elements = { "H", "He", "Li", "Be", "B", "C", "N", "O", "F", "Ne",
 
 int displayCase = 2;
 
+final int TEXT_X_START = 30;
+final int TEXT_Y_START = 90;
+final int TEXT_X_OFFSET_BOXES = 35;
+final int TEXT_Y_OFFSET = 30;
+
 void setup() {
   size(600, 600);
   hs1.setNormalPos(0.9f);
@@ -227,23 +232,23 @@ void draw() {
       String[] potentialListArray = sort(potentialList.toArray(new String[potentialList.size()]));
       for (int i = 0; i < potentialListArray.length; i++) {
         if (displayCase == 0) { //Without spaces
-          text(potentialListArray[i], 30, 90 + 30 * i);
+          text(potentialListArray[i], TEXT_X_START, TEXT_Y_START + TEXT_Y_OFFSET * i);
         }
         else if (displayCase == 1) { //With spaces
-          text(AddSpaces(potentialListArray[i]), 30, 90 + 30 * i);
+          text(AddSpaces(potentialListArray[i]), TEXT_X_START, TEXT_Y_START + TEXT_Y_OFFSET * i);
         }
         else if (displayCase == 2) { //Boxes
           String[] oneWord = AddSpacesToArray(potentialListArray[i]);
           if (oneWord != null) {
             for (int x = 0; x < oneWord.length; x++) {
               if (oneWord[x].length() == 1) {
-                text(oneWord[x], 30 + 35 * x + 5, 90 + 30 * i);
+                text(oneWord[x], TEXT_X_START + TEXT_X_OFFSET_BOXES * x + 5, TEXT_Y_START + TEXT_Y_OFFSET * i);
               }
               else {
-                text(oneWord[x], 30 + 35 * x, 90 + 30 * i);
+                text(oneWord[x], TEXT_X_START + TEXT_X_OFFSET_BOXES * x, TEXT_Y_START + TEXT_Y_OFFSET * i);
               }
               noFill();
-              rect(28 + 35 * x, 70 + 30 * i, 31, 28);
+              rect(TEXT_X_START - 2 + TEXT_X_OFFSET_BOXES * x, TEXT_Y_START - 20 + TEXT_Y_OFFSET * i, TEXT_X_OFFSET_BOXES - 4, TEXT_Y_OFFSET - 2);
               fill(0, 0, 0);
             }
           }
@@ -259,23 +264,23 @@ void draw() {
           fill(255, 0, 0);
           stroke(255, 0, 0);
           if (displayCase == 0) { //Without spaces
-            text(failedListArray[i], 30, 90 + 30 * i);
+            text(failedListArray[i], TEXT_X_START, TEXT_Y_START + TEXT_Y_OFFSET * i);
           }
           else if (displayCase == 1) { //With spaces
-            text(AddSpaces(failedListArray[i]), 30, 90 + 30 * i);
+            text(AddSpaces(failedListArray[i]), TEXT_X_START, TEXT_Y_START + TEXT_Y_OFFSET * i);
           }
           else if (displayCase == 2) { //Boxes
             String[] oneWord = AddSpacesToArray(failedListArray[i]);
             if (oneWord != null) {
               for (int x = 0; x < oneWord.length; x++) {
                 if (oneWord[x].length() == 1) {
-                  text(oneWord[x], 30 + 35 * x + 5, 90 + 30 * i);
+                  text(oneWord[x], TEXT_X_START + TEXT_X_OFFSET_BOXES * x + 5, TEXT_Y_START + TEXT_Y_OFFSET * i);
                 }
                 else {
-                  text(oneWord[x], 30 + 35 * x, 90 + 30 * i);
+                  text(oneWord[x], TEXT_X_START + TEXT_X_OFFSET_BOXES * x, TEXT_Y_START + TEXT_Y_OFFSET * i);
                 }
                 noFill();
-                rect(28 + 35 * x, 70 + 30 * i, 31, 28);
+                rect(TEXT_X_START - 2 + TEXT_X_OFFSET_BOXES * x, TEXT_Y_START - 20 + TEXT_Y_OFFSET * i, TEXT_X_OFFSET_BOXES - 4, TEXT_Y_OFFSET - 2);
               }
             }
           }
